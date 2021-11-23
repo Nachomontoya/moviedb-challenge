@@ -2,4 +2,6 @@
 
 .main-wrapper {
   background-color: c.$lightBgColor;
+  height: calc(100vh - 35px - 40px - 35px);
+  padding: 20px;
 }

@@ -5,3 +5,24 @@ body {
   padding: 35px;
   background-color: c.$darkBgColor;
 }
+
+button {
+  padding: 0px 20px;
+  border: 2px solid c.$lightBlue;
+  border-radius: 30px;
+  background-color: transparent;
+  color: c.$lightBlue;
+  &.active {
+    background-color: c.$darkBlue;
+    color: white;
+  }
+}
+
+* {
+  font-family: "Work Sans";
+}
+
+h1 {
+  font-weight: 500;
+  font-size: 30px;
+}
