@@ -1,7 +1,7 @@
 import React from "react";
 import { BtnProps } from "../../utils/types";
 
-function Button({ txtBtn, onClick, isActive }: BtnProps) {
+function Button({ txtBtn, onClick, isActive }: BtnProps): React.ReactElement {
   let btnClass: string;
 
   isActive ? (btnClass = "active") : (btnClass = "");

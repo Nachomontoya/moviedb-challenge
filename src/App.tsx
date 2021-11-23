@@ -1,7 +1,7 @@
 import React from "react";
 import RouterComponent from "./components/RouterComponent";
 
-function App() {
+function App(): React.ReactElement {
   return <RouterComponent />;
 }
 

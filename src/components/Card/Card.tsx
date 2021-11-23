@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { getPopularMovies } from "../../api/tmdb-api";
 import { CardProps } from "../../utils/types";
 
-function Card(/* { imgUrl, title, votes }: CardProps */) {
+function Card(/* { imgUrl, title, votes }: CardProps */): React.ReactElement {
   const loadMovies = async () => {
     try {
       const data = await getPopularMovies();
