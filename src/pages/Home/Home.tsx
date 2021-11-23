@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Button from "../../components/Button";
+import Card from "../../components/Card";
 import Layout from "../../components/Layout";
 
 function Home(): React.ReactElement {
@@ -23,7 +24,10 @@ function Home(): React.ReactElement {
         </div>
       </div>
       {isMovie ? (
-        <p className="fnt-white">Popular Movies</p>
+        <>
+          <p className="fnt-white">Popular Movies</p>
+          <Card />
+        </>
       ) : (
         <p className="fnt-white">Popular Shows</p>
       )}
