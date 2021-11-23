@@ -1,0 +1,7 @@
+@use "./colors" as c;
+
+body {
+  height: 100vh;
+  padding: 35px;
+  background-color: c.$darkBgColor;
+}
