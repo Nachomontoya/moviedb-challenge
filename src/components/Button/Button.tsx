@@ -1,10 +1,5 @@
 import React from "react";
-
-type BtnProps = {
-  txtBtn: string;
-  onClick: any;
-  isActive: boolean;
-};
+import { BtnProps } from "../../utils/types";
 
 function Button({ txtBtn, onClick, isActive }: BtnProps) {
   let btnClass: string;
