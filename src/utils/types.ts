@@ -1,6 +1,11 @@
 export type ChildrenProps = { children: React.ReactChild | React.ReactChild[] };
 
-export type CardProps = { imgUrl?: string; title?: string; votes?: number };
+export type CardProps = {
+  id?: number;
+  imgUrl?: string;
+  title?: string;
+  votes?: number;
+};
 
 export type BtnProps = {
   txtBtn: string;

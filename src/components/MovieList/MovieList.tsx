@@ -31,6 +31,7 @@ function MovieList(): React.ReactElement {
         movies.map((movie) => (
           <Card
             key={movie.id}
+            id={movie.id}
             imgUrl={`${API.IMAGES_URL}/${movie.poster_path}`}
             title={movie.title}
             votes={movie.vote_average}
