@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Button from "../../components/Button";
-import Card from "../../components/Card";
 import Layout from "../../components/Layout";
+import MovieList from "../../components/MovieList";
 
 function Home(): React.ReactElement {
   const [isMovie, setIsMovie] = useState<boolean>(false);
@@ -26,7 +26,7 @@ function Home(): React.ReactElement {
       {isMovie ? (
         <>
           <p className="fnt-white">Popular Movies</p>
-          <Card />
+          <MovieList />
         </>
       ) : (
         <p className="fnt-white">Popular Shows</p>

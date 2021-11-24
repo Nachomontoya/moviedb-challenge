@@ -4,4 +4,43 @@
   background-color: c.$lightBgColor;
   height: calc(100vh - 35px - 40px - 35px);
   padding: 20px;
+  overflow-x: hidden;
+}
+
+.card-wrapper {
+  overflow: hidden;
+}
+
+.poster-wrapper {
+  aspect-ratio: 6/9;
+  overflow: hidden;
+  position: relative;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.poster-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(0.6);
+}
+
+.info-wrapper {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  padding: 20px;
+  opacity: 1;
+  transition: opacity 0.3s ease;
+}
+
+.poster-wrapper:hover {
+  transform: scale(1.06);
+  .poster-image {
+    filter: brightness(1);
+  }
+  .info-wrapper {
+    opacity: 0;
+  }
 }
