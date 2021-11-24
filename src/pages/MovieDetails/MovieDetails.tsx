@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { FaStar } from "react-icons/fa";
+import { useHistory } from "react-router-dom";
 import { getMovieDetails, getRelatedMovies } from "../../api/tmdb-api";
 import Card from "../../components/Card";
 import Layout from "../../components/Layout";
@@ -15,9 +16,11 @@ function Details(): React.ReactElement {
   });
   const [related, setRelated] = useState<ResultProps>([]);
 
+  const history = useHistory();
+
   const loadDetails = async () => {
     try {
-      const { data } = await getMovieDetails(566525);
+      const { data } = await getMovieDetails(history.location.pathname);
       setDetails({
         title: data.title,
         votes: data.vote_average,
@@ -34,7 +37,7 @@ function Details(): React.ReactElement {
     try {
       const {
         data: { results },
-      } = await getRelatedMovies(566525);
+      } = await getRelatedMovies(history.location.pathname);
       setRelated(results);
     } catch (error: any) {
       console.log(error);
