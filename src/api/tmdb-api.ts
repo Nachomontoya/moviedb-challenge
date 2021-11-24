@@ -25,3 +25,12 @@ export function getPopularShows(
     headers: { Authorization: `Bearer ${API.API_TOKEN}` },
   });
 }
+
+export function getMovieDetails(
+  id: number,
+  api = makeTheMovieDbApi(),
+): Promise<AxiosResponse> {
+  return api.get(`${API.MOVIES}/${id}`, {
+    headers: { Authorization: `Bearer ${API.API_TOKEN}` },
+  });
+}

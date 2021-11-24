@@ -22,8 +22,6 @@ function ShowsList(): React.ReactElement {
     loadShows();
   }, []);
 
-  console.log(shows);
-
   return (
     <div className="row">
       {shows &&
