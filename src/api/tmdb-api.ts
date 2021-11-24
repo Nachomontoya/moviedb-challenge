@@ -21,7 +21,7 @@ export function getPopularShows(
   page = 1,
   api = makeTheMovieDbApi(),
 ): Promise<AxiosResponse> {
-  return api.get(`${API.MOVIES}${API.POPULAR}?page=${page}`, {
+  return api.get(`${API.TV}${API.POPULAR}?page=${page}`, {
     headers: { Authorization: `Bearer ${API.API_TOKEN}` },
   });
 }
