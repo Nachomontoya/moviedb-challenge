@@ -4,7 +4,7 @@ export type CardProps = {
   id?: number;
   imgUrl?: string;
   title?: string;
-  votes?: number;
+  votes?: string;
 };
 
 export type BtnProps = {

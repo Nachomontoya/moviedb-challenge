@@ -48,62 +48,58 @@ function Details(): React.ReactElement {
 
   return (
     <Layout>
-      <div className="h-100 position-relative">
-        {details.image ? (
-          <img
-            src={`${API.IMAGES_URL}/${details.image}`}
-            alt={details.title}
-            className="bg-image-wrapper"
-          />
-        ) : (
-          <div className="no-image" />
-        )}
-        <div className="d-flex flex-column justify-content-between h-100 position-absolute">
-          <div className="col-12 d-flex">
-            <div className="col-9 pe-5">
-              <h1 className="fnt-white">{details.title}</h1>
-              <div className="d-flex align-items-center mb-4">
-                <FaStar className="gold fnt-medium me-1" />
-                <span className="fnt-white fnt-medium fnt-semibold">
-                  {details.votes}
-                </span>
-                <span className="fnt-white m-0 fnt-light pt-1">/10</span>
-              </div>
-              <div className="col-8">
-                <h3 className="fnt-white mb-3">Overview</h3>
-                <p className="fnt-white fnt-light">{details.overview}</p>
-              </div>
+      <div className="d-flex flex-column justify-content-between">
+        <div className="row mb-5">
+          <div className="col-6 col-md-8">
+            {/* Title  */}
+            <h1 className="fnt-white">{details.title}</h1>
+            {/*  Votes */}
+            <div className="d-flex align-items-center mb-4">
+              <FaStar className="gold fnt-medium me-1" />
+              <span className="fnt-white fnt-medium fnt-semibold">
+                {details.votes}
+              </span>
+              <span className="fnt-white m-0 fnt-light pt-1">/10</span>
             </div>
-            <div className="col-3 rounded-3 poster-wrapper">
-              {details.image ? (
-                <img
-                  src={`${API.IMAGES_URL}/${details.image}`}
-                  alt={details.title}
-                  className="poster-image"
-                />
-              ) : (
-                <div className="no-image" />
-              )}
+            {/* Overview */}
+            <div className="col-md-6 col-xl-8">
+              <h3 className="fnt-white mb-3">Overview</h3>
+              <p className="fnt-white fnt-light">{details.overview}</p>
             </div>
           </div>
-
-          <div className="col-12">
-            <h2 className="fnt-white mb-3">Related movies</h2>
-            <div className="d-flex gap-3">
-              {related ? (
-                related.map((art) => (
-                  <Card
-                    key={art.id}
-                    id={art.id}
-                    imgUrl={`${API.IMAGES_URL}/${art.poster_path}`}
-                    title={art.title}
-                    votes={art.vote_average}
-                  />
-                ))
-              ) : (
-                <p>No related content</p>
-              )}
-            </div>
+          <div className="col-6 col-md-4 d-flex align-items-start justify-content-end poster-wrapper-small">
+            {details.image ? (
+              <img
+                src={details.image ? `${API.IMAGES_URL}/${details.image}` : ""}
+                alt={details.title}
+                className="poster-image-small rounded-3"
+              />
+            ) : (
+              <div className="no-image" />
+            )}
+          </div>
+        </div>
+        {/* related */}
+        <div className="col-12">
+          <h3 className="fnt-white mb-3">Related movies</h3>
+          <div className="row">
+            {related ? (
+              related.map((art, index) => {
+                while (index < 8) {
+                  return (
+                    <Card
+                      key={art.id}
+                      id={art.id}
+                      imgUrl={`${API.IMAGES_URL}/${art.poster_path}`}
+                      title={art.title}
+                      votes={art.vote_average?.toFixed(1)}
+                    />
+                  );
+                }
+              })
+            ) : (
+              <p>No related content</p>
+            )}
           </div>
         </div>
       </div>

@@ -33,7 +33,7 @@ function ShowsList(): React.ReactElement {
               show.poster_path ? `${API.IMAGES_URL}/${show.poster_path}` : ""
             }
             title={show.name}
-            votes={show.vote_average}
+            votes={show.vote_average?.toFixed(1)}
           />
         ))}
     </div>
