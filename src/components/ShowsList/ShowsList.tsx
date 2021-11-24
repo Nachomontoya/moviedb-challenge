@@ -21,6 +21,9 @@ function ShowsList(): React.ReactElement {
   useEffect(() => {
     loadShows();
   }, []);
+
+  console.log(shows);
+
   return (
     <div className="row">
       {shows &&
@@ -28,8 +31,10 @@ function ShowsList(): React.ReactElement {
           <Card
             key={show.id}
             id={show.id}
-            imgUrl={`${API.IMAGES_URL}/${show.poster_path}`}
-            title={show.title}
+            imgUrl={
+              show.poster_path ? `${API.IMAGES_URL}/${show.poster_path}` : ""
+            }
+            title={show.name}
             votes={show.vote_average}
           />
         ))}

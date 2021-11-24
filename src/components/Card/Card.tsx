@@ -6,13 +6,15 @@ import { FaStar } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
 function Card({ id, imgUrl, title, votes }: CardProps): React.ReactElement {
-  console.log(title);
-
   return (
     <div className="col-6 col-md-4 col-lg-3 col-xl-2 mb-5 rounded-3">
       <Link to={`${id}`}>
         <div className="poster-wrapper rounded-3">
-          <img src={imgUrl} alt={title} className="poster-image rounded-3" />
+          {imgUrl ? (
+            <img src={imgUrl} alt={title} className="poster-image rounded-3" />
+          ) : (
+            <div className="no-image" />
+          )}
           <div className="info-wrapper d-flex flex-column justify-content-between">
             <h3 className="fnt-white">{title}</h3>
             <div className="d-flex align-items-center">

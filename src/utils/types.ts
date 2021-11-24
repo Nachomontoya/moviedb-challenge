@@ -18,5 +18,6 @@ export type ResultProps = {
   poster_path: string;
   overview?: string;
   title?: string;
+  name?: string;
   vote_average?: number;
 }[];
