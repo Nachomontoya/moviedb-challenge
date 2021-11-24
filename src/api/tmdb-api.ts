@@ -13,6 +13,6 @@ export function getPopularMovies(
   api = makeTheMovieDbApi(),
 ): Promise<AxiosResponse> {
   return api.get(`${API.MOVIES}${API.POPULAR}?page=${page}`, {
-    headers: { Authorization: `Bearer ${API.API_KEY}` },
+    headers: { Authorization: `Bearer ${API.API_TOKEN}` },
   });
 }
