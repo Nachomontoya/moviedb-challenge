@@ -23,8 +23,6 @@ function MovieList(): React.ReactElement {
     loadMovies();
   }, []);
 
-  console.log(movies);
-
   return (
     <div className="row">
       {movies &&
