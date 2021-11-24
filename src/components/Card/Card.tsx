@@ -11,7 +11,11 @@ function Card({ id, imgUrl, title, votes }: CardProps): React.ReactElement {
       <Link to={`${id}`}>
         <div className="poster-wrapper rounded-3">
           {imgUrl ? (
-            <img src={imgUrl} alt={title} className="poster-image rounded-3" />
+            <img
+              src={imgUrl}
+              alt={title}
+              className="poster-image image-filter rounded-3"
+            />
           ) : (
             <div className="no-image" />
           )}

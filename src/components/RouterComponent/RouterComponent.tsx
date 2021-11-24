@@ -1,6 +1,7 @@
 import React from "react";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 import Home from "../../pages/Home";
+import MovieDetails from "../../pages/MovieDetails";
 
 function RouterComponent(): React.ReactElement {
   return (
@@ -8,6 +9,9 @@ function RouterComponent(): React.ReactElement {
       <Switch>
         <Route path={"/"} exact>
           <Home />
+        </Route>
+        <Route path={"/:id"} exact>
+          <MovieDetails />
         </Route>
       </Switch>
     </BrowserRouter>

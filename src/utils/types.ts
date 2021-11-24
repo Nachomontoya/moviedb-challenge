@@ -21,3 +21,10 @@ export type ResultProps = {
   name?: string;
   vote_average?: number;
 }[];
+
+export type DetailsProps = {
+  title: string;
+  votes: number;
+  overview: string;
+  image: string;
+};
