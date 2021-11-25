@@ -10,7 +10,7 @@ function RouterComponent(): React.ReactElement {
         <Route path={"/"} exact>
           <Home />
         </Route>
-        <Route path={"/:id"} exact>
+        <Route path={"/movie/:id"} exact>
           <MovieDetails />
         </Route>
       </Switch>

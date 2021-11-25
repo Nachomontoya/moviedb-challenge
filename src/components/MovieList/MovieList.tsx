@@ -33,6 +33,7 @@ function MovieList(): React.ReactElement {
             imgUrl={`${API.IMAGES_URL}/${movie.poster_path}`}
             title={movie.title}
             votes={movie.vote_average?.toFixed(1)}
+            isMovie
           />
         ))}
     </div>

@@ -27,7 +27,6 @@ function Details(): React.ReactElement {
         overview: data.overview,
         image: data.poster_path,
       });
-      console.log(data);
     } catch (error: any) {
       console.log(error);
     }
@@ -96,6 +95,7 @@ function Details(): React.ReactElement {
                       imgUrl={`${API.IMAGES_URL}/${art.poster_path}`}
                       title={art.title}
                       votes={art.vote_average?.toFixed(1)}
+                      isMovie
                     />
                   );
                 }

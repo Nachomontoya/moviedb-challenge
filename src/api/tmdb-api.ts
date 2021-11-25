@@ -30,7 +30,7 @@ export function getMovieDetails(
   id: string,
   api = makeTheMovieDbApi(),
 ): Promise<AxiosResponse> {
-  return api.get(`${API.MOVIES}${id}`, {
+  return api.get(`${id}`, {
     headers: { Authorization: `Bearer ${API.API_TOKEN}` },
   });
 }
@@ -39,7 +39,7 @@ export function getRelatedMovies(
   id: string,
   api = makeTheMovieDbApi(),
 ): Promise<AxiosResponse> {
-  return api.get(`${API.MOVIES}${id}/similar`, {
+  return api.get(`${id}/similar`, {
     headers: { Authorization: `Bearer ${API.API_TOKEN}` },
   });
 }

@@ -5,6 +5,7 @@ export type CardProps = {
   imgUrl?: string;
   title?: string;
   votes?: string;
+  isMovie?: boolean;
 };
 
 export type BtnProps = {

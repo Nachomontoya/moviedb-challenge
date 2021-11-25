@@ -5,11 +5,17 @@ import { CardProps } from "../../utils/types";
 import { FaStar } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
-function Card({ id, imgUrl, title, votes }: CardProps): React.ReactElement {
+function Card({
+  id,
+  imgUrl,
+  title,
+  votes,
+  isMovie = false,
+}: CardProps): React.ReactElement {
   return (
     <div className="col-6 col-sm-4 col-md-3 col-lg-2 mb-4 rounded-3">
       <div className="poster-wrapper rounded-3">
-        <Link to={`${id}`}>
+        <Link to={isMovie ? `/movie/${id}` : `/tv/${id}`}>
           {imgUrl ? (
             <img
               src={imgUrl}

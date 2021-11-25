@@ -5,7 +5,7 @@ import MovieList from "../../components/MovieList";
 import ShowsList from "../../components/ShowsList";
 
 function Home(): React.ReactElement {
-  const [isMovie, setIsMovie] = useState<boolean>(false);
+  const [isMovie, setIsMovie] = useState<boolean>(true);
 
   return (
     <Layout>
@@ -24,13 +24,7 @@ function Home(): React.ReactElement {
           />
         </div>
       </div>
-      {isMovie ? (
-        <>
-          <MovieList />
-        </>
-      ) : (
-        <ShowsList />
-      )}
+      {isMovie ? <MovieList /> : <ShowsList />}
     </Layout>
   );
 }
