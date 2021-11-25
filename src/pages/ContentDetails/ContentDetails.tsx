@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
 import { FaStar } from "react-icons/fa";
 import { useLocation } from "react-router-dom";
 import { getContentDetails, getRelatedContent } from "../../api/tmdb-api";
 import Card from "../../components/Card";
 import Layout from "../../components/Layout";
 import { API } from "../../constants/routes";
-import { DetailsProps, ResultProps } from "../../utils/types";
+import { DetailsProps, ResultProps, RootState } from "../../utils/types";
 import Loader from "react-loader-spinner";
 import Scrollbars from "react-custom-scrollbars";
 
@@ -13,6 +14,7 @@ import { motion } from "framer-motion";
 
 function ContentDetails(): React.ReactElement {
   const [isLoading, setIsLoading] = useState<boolean>(true);
+
   const [details, setDetails] = useState<DetailsProps>({
     title: "",
     votes: 0,
@@ -20,6 +22,10 @@ function ContentDetails(): React.ReactElement {
     image: "",
   });
   const [related, setRelated] = useState<ResultProps>([]);
+
+  const {
+    mode: { isDark },
+  } = useSelector((state: RootState) => state);
 
   const location = useLocation();
 
@@ -73,19 +79,37 @@ function ContentDetails(): React.ReactElement {
                   transition={{ duration: 0.8 }}
                 >
                   {/* Title  */}
-                  <h1 className="fnt-white">{details.title}</h1>
+                  <h1 className={`${isDark ? "dark-blue" : "white"}`}>
+                    {details.title}
+                  </h1>
                   {/*  Votes */}
                   <div className="d-flex align-items-center mb-4">
                     <FaStar className="gold fnt-medium me-1" />
-                    <span className="fnt-white fnt-medium fnt-semibold">
+                    <span
+                      className={`${
+                        isDark ? "dark-gray" : "white"
+                      } fnt-medium fnt-semibold`}
+                    >
                       {details.votes}
                     </span>
-                    <span className="fnt-white m-0 fnt-light pt-1">/10</span>
+                    <span
+                      className={`${
+                        isDark ? "dark-gray" : "white"
+                      } m-0 fnt-light pt-1`}
+                    >
+                      /10
+                    </span>
                   </div>
                   {/* Overview */}
                   <div className="col-md-6 col-xl-8">
-                    <h3 className="fnt-white mb-3">Overview</h3>
-                    <p className="fnt-white fnt-light">{details.overview}</p>
+                    <h3 className={`${isDark ? "dark-gray" : "white"} mb-3`}>
+                      Overview
+                    </h3>
+                    <p
+                      className={`${isDark ? "dark-gray" : "white"} fnt-light`}
+                    >
+                      {details.overview}
+                    </p>
                   </div>
                 </motion.div>
                 <motion.div
@@ -113,7 +137,9 @@ function ContentDetails(): React.ReactElement {
           </div>
           {/* related */}
           <div className="col-12">
-            <h3 className="fnt-white mb-3">Related Content</h3>
+            <h3 className={`${isDark ? "dark-gray" : "white"} mb-3`}>
+              Related Content
+            </h3>
             <div className="row">
               {isLoading ? (
                 <Loader

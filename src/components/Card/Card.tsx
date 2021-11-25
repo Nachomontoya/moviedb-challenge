@@ -36,11 +36,11 @@ function Card({
             <div className="no-image" />
           )}
           <div className="info-wrapper d-flex flex-column justify-content-between">
-            <h4 className="fnt-white">{title}</h4>
+            <h4 className="white">{title}</h4>
             <div className="d-flex align-items-center">
               <FaStar className="gold fnt-medium me-1" />
-              <span className="fnt-white fnt-medium fnt-semibold">{votes}</span>
-              <span className="fnt-white m-0 fnt-light pt-1">/10</span>
+              <span className="white fnt-medium fnt-semibold">{votes}</span>
+              <span className="white m-0 fnt-light pt-1">/10</span>
             </div>
           </div>
         </Link>

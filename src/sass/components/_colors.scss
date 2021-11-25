@@ -6,7 +6,7 @@ $medGray: #474747;
 $lightGray: #787878;
 $lightBlue: #63acf0;
 $darkBlue: #1c72c2;
-$gold: #e3e556;
+$gold: #ffc107;
 
 .gold {
   color: $gold;
@@ -16,14 +16,30 @@ $gold: #e3e556;
   color: $darkBlue;
 }
 
+.dark-gray {
+  color: $medGray;
+}
+
+.white {
+  color: white;
+}
+
 .border-white {
   border: 1px solid white;
 }
 
-.bg-dark {
+.bg-primary-dark {
+  background-color: $primaryBgDarkColor;
+}
+
+.bg-secondary-dark {
   background-color: $secondaryBgDarkColor;
 }
 
-.bg-light {
+.bg-primary-light {
+  background-color: $primaryBgLightColor;
+}
+
+.bg-secondary-light {
   background-color: $secondaryBgLightColor;
 }

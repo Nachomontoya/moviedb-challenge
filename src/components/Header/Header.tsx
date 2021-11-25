@@ -23,7 +23,7 @@ function Header(): React.ReactElement {
     <header className="pb-35 d-flex justify-content-between">
       <Link to={"/"} data-testid="home-logo">
         <SiThemoviedatabase
-          className={`fnt-logo ${isDark ? "dark-blue" : "fnt-white"}`}
+          className={`fnt-logo ${isDark ? "dark-blue" : "white"}`}
         />
       </Link>
       <Button onClick={handleMode} isActive={isDark}>

@@ -9,7 +9,9 @@ function Main({ children }: ChildrenProps): React.ReactElement {
 
   return (
     <main
-      className={`main-wrapper rounded-3 ${isDark ? "bg-light" : "bg-dark"}`}
+      className={`main-wrapper rounded-3 ${
+        isDark ? "bg-secondary-light" : "bg-secondary-dark"
+      }`}
     >
       {children}
     </main>
