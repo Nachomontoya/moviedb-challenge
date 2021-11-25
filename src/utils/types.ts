@@ -11,6 +11,25 @@ export type CardProps = {
   isMovie?: boolean;
 };
 
+export type InfoProps = {
+  isDark: boolean;
+  endpoint: string;
+};
+
+export type RelatedProps = {
+  endpoint: string;
+};
+
+export type RatingProps = {
+  isDark: boolean;
+  votes?: number;
+};
+
+export type ContentImgProps = {
+  image?: string;
+  title: string;
+};
+
 export type BtnProps = {
   children: string | React.ReactChild;
   onClick: () => unknown;
@@ -30,11 +49,19 @@ export type DetailsProps = {
   title: string;
   votes: number;
   overview: string;
-  image: string;
+  image?: string;
 };
 
 export type ReduxState = {
   isDark: boolean;
+};
+
+export type ImgObject = {
+  id: number;
+  poster_path: string;
+  name?: string;
+  title?: string;
+  vote_average: number;
 };
 
 export type RootState = ReturnType<typeof store.getState>;
