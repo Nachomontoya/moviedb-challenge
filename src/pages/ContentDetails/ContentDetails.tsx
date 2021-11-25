@@ -7,7 +7,7 @@ import Layout from "../../components/Layout";
 import { API } from "../../constants/routes";
 import { DetailsProps, ResultProps } from "../../utils/types";
 
-function ShowDetails(): React.ReactElement {
+function ContentDetails(): React.ReactElement {
   const [details, setDetails] = useState<DetailsProps>({
     title: "",
     votes: 0,
@@ -18,12 +18,14 @@ function ShowDetails(): React.ReactElement {
 
   const history = useHistory();
 
+  console.log(history);
+
   const loadDetails = async () => {
     try {
       const { data } = await getContentDetails(history.location.pathname);
       console.log(data);
       setDetails({
-        title: data.name,
+        title: data.name || data.title,
         votes: data.vote_average,
         overview: data.overview,
         image: data.poster_path,
@@ -84,7 +86,7 @@ function ShowDetails(): React.ReactElement {
         </div>
         {/* related */}
         <div className="col-12">
-          <h3 className="fnt-white mb-3">Related movies</h3>
+          <h3 className="fnt-white mb-3">Related Content</h3>
           <div className="row">
             {related ? (
               related.map((art, index) => {
@@ -94,8 +96,9 @@ function ShowDetails(): React.ReactElement {
                       key={art.id}
                       id={art.id}
                       imgUrl={`${API.IMAGES_URL}/${art.poster_path}`}
-                      title={art.name}
+                      title={art.name || art.title}
                       votes={art.vote_average?.toFixed(1)}
+                      isMovie={art.title ? true : false}
                     />
                   );
                 }
@@ -110,4 +113,4 @@ function ShowDetails(): React.ReactElement {
   );
 }
 
-export default ShowDetails;
+export default ContentDetails;

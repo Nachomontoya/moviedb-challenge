@@ -39,6 +39,8 @@ export function getRelatedContent(
   endpoint: string,
   api = makeTheMovieDbApi(),
 ): Promise<AxiosResponse> {
+  console.log(endpoint);
+
   return api.get(`${endpoint}/similar`, {
     headers: { Authorization: `Bearer ${API.API_TOKEN}` },
   });
