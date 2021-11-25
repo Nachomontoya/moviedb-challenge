@@ -9,7 +9,7 @@ import { DetailsProps, ResultProps } from "../../utils/types";
 import Loader from "react-loader-spinner";
 import Scrollbars from "react-custom-scrollbars";
 
-import { AnimatePresence, motion } from "framer-motion";
+import { motion } from "framer-motion";
 
 function ContentDetails(): React.ReactElement {
   const [isLoading, setIsLoading] = useState<boolean>(true);
@@ -66,50 +66,48 @@ function ContentDetails(): React.ReactElement {
               <Loader type="ThreeDots" color="#63acf0" height={50} width={50} />
             ) : (
               <>
-                <AnimatePresence>
-                  <motion.div
-                    className="col-6 col-md-8"
-                    initial={{ x: -100, opacity: 0 }}
-                    animate={{ x: 0, opacity: 1 }}
-                    transition={{ duration: 0.8 }}
-                  >
-                    {/* Title  */}
-                    <h1 className="fnt-white">{details.title}</h1>
-                    {/*  Votes */}
-                    <div className="d-flex align-items-center mb-4">
-                      <FaStar className="gold fnt-medium me-1" />
-                      <span className="fnt-white fnt-medium fnt-semibold">
-                        {details.votes}
-                      </span>
-                      <span className="fnt-white m-0 fnt-light pt-1">/10</span>
-                    </div>
-                    {/* Overview */}
-                    <div className="col-md-6 col-xl-8">
-                      <h3 className="fnt-white mb-3">Overview</h3>
-                      <p className="fnt-white fnt-light">{details.overview}</p>
-                    </div>
-                  </motion.div>
-                  <motion.div
-                    className="col-6 col-md-4 d-flex align-items-start justify-content-end poster-wrapper-small"
-                    initial={{ x: 100, opacity: 0 }}
-                    animate={{ x: 0, opacity: 1 }}
-                    transition={{ duration: 0.8 }}
-                  >
-                    {details.image ? (
-                      <img
-                        src={
-                          details.image
-                            ? `${API.IMAGES_URL}/${details.image}`
-                            : ""
-                        }
-                        alt={details.title}
-                        className="poster-image-small rounded-3"
-                      />
-                    ) : (
-                      <div className="no-image" />
-                    )}
-                  </motion.div>
-                </AnimatePresence>
+                <motion.div
+                  className="col-6 col-md-8"
+                  initial={{ x: -100, opacity: 0 }}
+                  animate={{ x: 0, opacity: 1 }}
+                  transition={{ duration: 0.8 }}
+                >
+                  {/* Title  */}
+                  <h1 className="fnt-white">{details.title}</h1>
+                  {/*  Votes */}
+                  <div className="d-flex align-items-center mb-4">
+                    <FaStar className="gold fnt-medium me-1" />
+                    <span className="fnt-white fnt-medium fnt-semibold">
+                      {details.votes}
+                    </span>
+                    <span className="fnt-white m-0 fnt-light pt-1">/10</span>
+                  </div>
+                  {/* Overview */}
+                  <div className="col-md-6 col-xl-8">
+                    <h3 className="fnt-white mb-3">Overview</h3>
+                    <p className="fnt-white fnt-light">{details.overview}</p>
+                  </div>
+                </motion.div>
+                <motion.div
+                  className="col-6 col-md-4 d-flex align-items-start justify-content-end poster-wrapper-small"
+                  initial={{ x: 100, opacity: 0 }}
+                  animate={{ x: 0, opacity: 1 }}
+                  transition={{ duration: 0.8 }}
+                >
+                  {details.image ? (
+                    <img
+                      src={
+                        details.image
+                          ? `${API.IMAGES_URL}/${details.image}`
+                          : ""
+                      }
+                      alt={details.title}
+                      className="poster-image-small rounded-3"
+                    />
+                  ) : (
+                    <div className="no-image" />
+                  )}
+                </motion.div>
               </>
             )}
           </div>

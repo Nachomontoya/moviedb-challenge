@@ -2,6 +2,8 @@ const { REACT_APP_TMDB_API_ROUTE, REACT_APP_TMDB_API_TOKEN } = process.env;
 
 export const PUBLIC = {
   HOME: "/",
+  MOVIES: "/movie",
+  SHOWS: "/tv",
 };
 
 export const API = {

@@ -7,7 +7,12 @@ function Button({ txtBtn, onClick, isActive }: BtnProps): React.ReactElement {
   isActive ? (btnClass = "active") : (btnClass = "");
 
   return (
-    <button className={`${btnClass} fnt-small`} type="button" onClick={onClick}>
+    <button
+      className={`${btnClass} fnt-small`}
+      type="button"
+      onClick={onClick}
+      data-testid="btn-text"
+    >
       {txtBtn}
     </button>
   );
