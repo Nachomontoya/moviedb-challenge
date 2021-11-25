@@ -6,14 +6,18 @@ import { PUBLIC } from "../../constants/routes";
 
 import Card from "../../components/Card";
 import { BrowserRouter } from "react-router-dom";
+import Provider from "../../redux/provider";
 
 describe("Render Card", () => {
   afterEach(cleanup);
 
   render(
-    <BrowserRouter>
-      <Card id={1234} isMovie={true} />
-    </BrowserRouter>,
+    <Provider>
+      <BrowserRouter>
+        <Card id={1234} isMovie={true} />
+      </BrowserRouter>
+      ,
+    </Provider>,
   );
 
   test("Movie's cards has link to movie and id of the movie", () => {

@@ -1,5 +1,7 @@
-$darkBgColor: #161616;
-$lightBgColor: #242424;
+$primaryBgDarkColor: #161616;
+$secondaryBgDarkColor: #242424;
+$primaryBgLightColor: #ffffff;
+$secondaryBgLightColor: #e5e5e5;
 $medGray: #474747;
 $lightGray: #787878;
 $lightBlue: #63acf0;
@@ -10,6 +12,18 @@ $gold: #e3e556;
   color: $gold;
 }
 
+.dark-blue {
+  color: $darkBlue;
+}
+
 .border-white {
   border: 1px solid white;
+}
+
+.bg-dark {
+  background-color: $secondaryBgDarkColor;
+}
+
+.bg-light {
+  background-color: $secondaryBgLightColor;
 }

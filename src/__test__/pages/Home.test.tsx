@@ -4,13 +4,16 @@ import "@testing-library/jest-dom";
 
 import Home from "../../pages/Home";
 import { BrowserRouter } from "react-router-dom";
+import Provider from "../../redux/provider";
 
 describe("Home page", () => {
   test("Home page is rendering", () => {
     render(
-      <BrowserRouter>
-        <Home />
-      </BrowserRouter>,
+      <Provider>
+        <BrowserRouter>
+          <Home />
+        </BrowserRouter>
+      </Provider>,
     );
     expect(screen.getByText("Popular Movies" || "Popular Shows"));
   });

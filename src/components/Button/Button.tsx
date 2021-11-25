@@ -1,7 +1,7 @@
 import React from "react";
 import { BtnProps } from "../../utils/types";
 
-function Button({ txtBtn, onClick, isActive }: BtnProps): React.ReactElement {
+function Button({ children, onClick, isActive }: BtnProps): React.ReactElement {
   let btnClass: string;
 
   isActive ? (btnClass = "active") : (btnClass = "");
@@ -13,7 +13,7 @@ function Button({ txtBtn, onClick, isActive }: BtnProps): React.ReactElement {
       onClick={onClick}
       data-testid="btn-text"
     >
-      {txtBtn}
+      {children}
     </button>
   );
 }

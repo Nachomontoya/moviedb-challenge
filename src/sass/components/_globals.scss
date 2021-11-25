@@ -3,13 +3,13 @@
 body {
   height: 100vh;
   padding: 35px;
-  background-color: c.$darkBgColor;
+  background-color: c.$primaryBgDarkColor;
 }
 
 button {
   padding: 0px 20px;
   border: 2px solid c.$lightBlue;
-  border-radius: 30px;
+  border-radius: 8px;
   background-color: transparent;
   color: c.$lightBlue;
   &.active {

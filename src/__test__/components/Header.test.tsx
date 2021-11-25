@@ -6,14 +6,17 @@ import { PUBLIC } from "../../constants/routes";
 
 import Header from "../../components/Header";
 import { BrowserRouter } from "react-router-dom";
+import Provider from "../../redux/provider";
 
 describe("Render Header", () => {
   afterEach(cleanup);
 
   render(
-    <BrowserRouter>
-      <Header />
-    </BrowserRouter>,
+    <Provider>
+      <BrowserRouter>
+        <Header />
+      </BrowserRouter>
+    </Provider>,
   );
 
   test("logo with link to home page is rendered", () => {

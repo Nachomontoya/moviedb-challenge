@@ -5,7 +5,6 @@ import { CardProps } from "../../utils/types";
 import { FaStar } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
-// import { fromBottom } from "../../utils/motionSettings";
 import { motion } from "framer-motion";
 
 function Card({

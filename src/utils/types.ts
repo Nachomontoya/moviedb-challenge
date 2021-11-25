@@ -1,3 +1,6 @@
+import React from "react";
+import store from "../redux/store";
+
 export type ChildrenProps = { children: React.ReactChild | React.ReactChild[] };
 
 export type CardProps = {
@@ -9,7 +12,7 @@ export type CardProps = {
 };
 
 export type BtnProps = {
-  txtBtn: string;
+  children: string | React.ReactChild;
   onClick: any;
   isActive: boolean;
 };
@@ -29,3 +32,9 @@ export type DetailsProps = {
   overview: string;
   image: string;
 };
+
+export type ReduxState = {
+  isDark: boolean;
+};
+
+export type RootState = ReturnType<typeof store.getState>;

@@ -1,4 +1,5 @@
 import React from "react";
+
 import { ChildrenProps } from "../../utils/types";
 import Header from "../Header";
 import Main from "../Main";

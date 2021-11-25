@@ -7,7 +7,11 @@ import Button from "../../components/Button";
 describe("Render Button", () => {
   afterEach(cleanup);
 
-  render(<Button txtBtn="testBtn" isActive={true} onClick={() => ({})} />);
+  render(
+    <Button isActive={true} onClick={() => ({})}>
+      Test
+    </Button>,
+  );
 
   test("Button active's background is blue", () => {
     const buttonTest = screen.getByTestId("btn-text");
