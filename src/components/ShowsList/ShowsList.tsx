@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Card from "../Card";
+import { toast } from "react-toastify";
 
 import { getPopularShows } from "../../api/tmdb-api";
 import { API } from "../../constants/routes";
@@ -19,7 +20,15 @@ function ShowsList(): React.ReactElement {
       } = await getPopularShows();
       setShows(results);
     } catch (error) {
-      console.log(error);
+      let errorMessage: string;
+      if (error instanceof Error) {
+        errorMessage = error.message;
+      } else {
+        errorMessage = String(error);
+      }
+      toast(errorMessage, {
+        type: "error",
+      });
     }
     setIsLoading(false);
   };

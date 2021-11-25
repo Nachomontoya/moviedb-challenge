@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
+import { toast } from "react-toastify";
 import { FaStar } from "react-icons/fa";
 import { useLocation } from "react-router-dom";
 import { getContentDetails, getRelatedContent } from "../../api/tmdb-api";
@@ -40,7 +41,15 @@ function ContentDetails(): React.ReactElement {
         image: data.poster_path,
       });
     } catch (error) {
-      console.log(error);
+      let errorMessage: string;
+      if (error instanceof Error) {
+        errorMessage = error.message;
+      } else {
+        errorMessage = String(error);
+      }
+      toast(errorMessage, {
+        type: "error",
+      });
     }
     setIsLoading(false);
   };
@@ -53,7 +62,15 @@ function ContentDetails(): React.ReactElement {
       } = await getRelatedContent(location.pathname);
       setRelated(results);
     } catch (error) {
-      console.log(error);
+      let errorMessage: string;
+      if (error instanceof Error) {
+        errorMessage = error.message;
+      } else {
+        errorMessage = String(error);
+      }
+      toast(errorMessage, {
+        type: "error",
+      });
     }
     setIsLoading(false);
   };
