@@ -13,7 +13,7 @@ export type CardProps = {
 
 export type BtnProps = {
   children: string | React.ReactChild;
-  onClick: any;
+  onClick: () => unknown;
   isActive: boolean;
 };
 

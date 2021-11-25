@@ -39,7 +39,7 @@ function ContentDetails(): React.ReactElement {
         overview: data.overview,
         image: data.poster_path,
       });
-    } catch (error: any) {
+    } catch (error) {
       console.log(error);
     }
     setIsLoading(false);
@@ -52,7 +52,7 @@ function ContentDetails(): React.ReactElement {
         data: { results },
       } = await getRelatedContent(location.pathname);
       setRelated(results);
-    } catch (error: any) {
+    } catch (error) {
       console.log(error);
     }
     setIsLoading(false);

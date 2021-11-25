@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { SiThemoviedatabase } from "react-icons/si";
 import { Link } from "react-router-dom";

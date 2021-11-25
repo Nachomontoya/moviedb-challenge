@@ -18,8 +18,8 @@ function MovieList(): React.ReactElement {
         data: { results },
       } = await getPopularMovies();
       setMovies(results);
-    } catch (error: any) {
-      console.log(error.response);
+    } catch (error) {
+      console.log(error);
     }
     setIsLoading(false);
   };

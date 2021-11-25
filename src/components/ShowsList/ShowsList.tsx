@@ -18,8 +18,8 @@ function ShowsList(): React.ReactElement {
         data: { results },
       } = await getPopularShows();
       setShows(results);
-    } catch (error: any) {
-      console.log(error.response);
+    } catch (error) {
+      console.log(error);
     }
     setIsLoading(false);
   };
