@@ -56,7 +56,7 @@ function ContentInfo({ isDark, endpoint }: InfoProps): React.ReactElement {
       ) : (
         <>
           <motion.div
-            className="col-8"
+            className="col-12 col-sm-8"
             initial={{ x: -100, opacity: 0 }}
             animate={{ x: 0, opacity: 1 }}
             transition={{ duration: 0.8 }}
@@ -68,7 +68,7 @@ function ContentInfo({ isDark, endpoint }: InfoProps): React.ReactElement {
             {/*  Votes */}
             <RatingCard isDark={isDark} votes={details.votes} />
             {/* Overview */}
-            <div>
+            <div className="col-12 col-lg-8">
               <h3 className={`${isDark ? "dark-gray" : "white"} mb-3`}>
                 Overview
               </h3>
@@ -78,7 +78,7 @@ function ContentInfo({ isDark, endpoint }: InfoProps): React.ReactElement {
             </div>
           </motion.div>
           <motion.div
-            className="col-4 d-flex align-items-start justify-content-end poster-wrapper-small"
+            className="col-12 col-sm-4 d-flex align-items-start justify-content-end poster-wrapper-small"
             initial={{ x: 100, opacity: 0 }}
             animate={{ x: 0, opacity: 1 }}
             transition={{ duration: 0.8 }}
