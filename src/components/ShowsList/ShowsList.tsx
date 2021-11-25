@@ -1,13 +1,18 @@
 import React, { useEffect, useState } from "react";
+import Card from "../Card";
+
 import { getPopularShows } from "../../api/tmdb-api";
 import { API } from "../../constants/routes";
 import { ResultProps } from "../../utils/types";
-import Card from "../Card";
+
+import Loader from "react-loader-spinner";
 
 function ShowsList(): React.ReactElement {
+  const [isLoading, setIsLoading] = useState<boolean>(true);
   const [shows, setShows] = useState<ResultProps>([]);
 
   const loadShows = async () => {
+    setIsLoading(true);
     try {
       const {
         data: { results },
@@ -16,6 +21,7 @@ function ShowsList(): React.ReactElement {
     } catch (error: any) {
       console.log(error.response);
     }
+    setIsLoading(false);
   };
 
   useEffect(() => {
@@ -24,18 +30,26 @@ function ShowsList(): React.ReactElement {
 
   return (
     <div className="row">
-      {shows &&
-        shows.map((show) => (
-          <Card
-            key={show.id}
-            id={show.id}
-            imgUrl={
-              show.poster_path ? `${API.IMAGES_URL}/${show.poster_path}` : ""
-            }
-            title={show.name}
-            votes={show.vote_average?.toFixed(1)}
-          />
-        ))}
+      {isLoading ? (
+        <Loader type="ThreeDots" color="#63acf0" height={50} width={50} />
+      ) : (
+        <>
+          {shows &&
+            shows.map((show) => (
+              <Card
+                key={show.id}
+                id={show.id}
+                imgUrl={
+                  show.poster_path
+                    ? `${API.IMAGES_URL}/${show.poster_path}`
+                    : ""
+                }
+                title={show.name}
+                votes={show.vote_average?.toFixed(1)}
+              />
+            ))}
+        </>
+      )}
     </div>
   );
 }

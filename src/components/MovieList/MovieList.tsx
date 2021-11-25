@@ -5,10 +5,14 @@ import { getPopularMovies } from "../../api/tmdb-api";
 import { API } from "../../constants/routes";
 import { ResultProps } from "../../utils/types";
 
+import Loader from "react-loader-spinner";
+
 function MovieList(): React.ReactElement {
+  const [isLoading, setIsLoading] = useState<boolean>(true);
   const [movies, setMovies] = useState<ResultProps>([]);
 
   const loadMovies = async () => {
+    setIsLoading(true);
     try {
       const {
         data: { results },
@@ -17,6 +21,7 @@ function MovieList(): React.ReactElement {
     } catch (error: any) {
       console.log(error.response);
     }
+    setIsLoading(false);
   };
 
   useEffect(() => {
@@ -25,17 +30,23 @@ function MovieList(): React.ReactElement {
 
   return (
     <div className="row">
-      {movies &&
-        movies.map((movie) => (
-          <Card
-            key={movie.id}
-            id={movie.id}
-            imgUrl={`${API.IMAGES_URL}/${movie.poster_path}`}
-            title={movie.title}
-            votes={movie.vote_average?.toFixed(1)}
-            isMovie
-          />
-        ))}
+      {isLoading ? (
+        <Loader type="ThreeDots" color="#63acf0" height={50} width={50} />
+      ) : (
+        <>
+          {movies &&
+            movies.map((movie) => (
+              <Card
+                key={movie.id}
+                id={movie.id}
+                imgUrl={`${API.IMAGES_URL}/${movie.poster_path}`}
+                title={movie.title}
+                votes={movie.vote_average?.toFixed(1)}
+                isMovie
+              />
+            ))}
+        </>
+      )}
     </div>
   );
 }
