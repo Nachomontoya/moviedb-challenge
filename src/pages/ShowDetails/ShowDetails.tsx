@@ -7,7 +7,7 @@ import Layout from "../../components/Layout";
 import { API } from "../../constants/routes";
 import { DetailsProps, ResultProps } from "../../utils/types";
 
-function MovieDetails(): React.ReactElement {
+function ShowDetails(): React.ReactElement {
   const [details, setDetails] = useState<DetailsProps>({
     title: "",
     votes: 0,
@@ -21,8 +21,9 @@ function MovieDetails(): React.ReactElement {
   const loadDetails = async () => {
     try {
       const { data } = await getContentDetails(history.location.pathname);
+      console.log(data);
       setDetails({
-        title: data.title,
+        title: data.name,
         votes: data.vote_average,
         overview: data.overview,
         image: data.poster_path,
@@ -93,9 +94,8 @@ function MovieDetails(): React.ReactElement {
                       key={art.id}
                       id={art.id}
                       imgUrl={`${API.IMAGES_URL}/${art.poster_path}`}
-                      title={art.title}
+                      title={art.name}
                       votes={art.vote_average?.toFixed(1)}
-                      isMovie
                     />
                   );
                 }
@@ -110,4 +110,4 @@ function MovieDetails(): React.ReactElement {
   );
 }
 
-export default MovieDetails;
+export default ShowDetails;

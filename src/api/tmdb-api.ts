@@ -26,20 +26,20 @@ export function getPopularShows(
   });
 }
 
-export function getMovieDetails(
-  id: string,
+export function getContentDetails(
+  endpoint: string,
   api = makeTheMovieDbApi(),
 ): Promise<AxiosResponse> {
-  return api.get(`${id}`, {
+  return api.get(`${endpoint}`, {
     headers: { Authorization: `Bearer ${API.API_TOKEN}` },
   });
 }
 
-export function getRelatedMovies(
-  id: string,
+export function getRelatedContent(
+  endpoint: string,
   api = makeTheMovieDbApi(),
 ): Promise<AxiosResponse> {
-  return api.get(`${id}/similar`, {
+  return api.get(`${endpoint}/similar`, {
     headers: { Authorization: `Bearer ${API.API_TOKEN}` },
   });
 }
