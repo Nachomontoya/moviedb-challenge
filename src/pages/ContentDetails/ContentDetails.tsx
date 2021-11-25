@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { FaStar } from "react-icons/fa";
-import { useHistory } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import { getContentDetails, getRelatedContent } from "../../api/tmdb-api";
 import Card from "../../components/Card";
 import Layout from "../../components/Layout";
@@ -16,14 +16,11 @@ function ContentDetails(): React.ReactElement {
   });
   const [related, setRelated] = useState<ResultProps>([]);
 
-  const history = useHistory();
-
-  console.log(history);
+  const location = useLocation();
 
   const loadDetails = async () => {
     try {
-      const { data } = await getContentDetails(history.location.pathname);
-      console.log(data);
+      const { data } = await getContentDetails(location.pathname);
       setDetails({
         title: data.name || data.title,
         votes: data.vote_average,
@@ -39,7 +36,7 @@ function ContentDetails(): React.ReactElement {
     try {
       const {
         data: { results },
-      } = await getRelatedContent(history.location.pathname);
+      } = await getRelatedContent(location.pathname);
       setRelated(results);
     } catch (error: any) {
       console.log(error);
@@ -49,7 +46,7 @@ function ContentDetails(): React.ReactElement {
   useEffect(() => {
     loadDetails();
     loadRelated();
-  }, []);
+  }, [location]);
 
   return (
     <Layout>
