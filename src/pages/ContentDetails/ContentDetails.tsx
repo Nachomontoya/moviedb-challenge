@@ -21,16 +21,13 @@ function ContentDetails(): React.ReactElement {
       <Scrollbars autoHide>
         {/* content details */}
         <div className="d-flex flex-column justify-content-between">
-          <div className="row mb-5">
+          <div className="row m-0 mb-5">
             <ContentInfo isDark={isDark} endpoint={location.pathname} />
           </div>
           {/* related content */}
           <div className="col-12">
-            <h3 className={`${isDark ? "dark-gray" : "white"} mb-3`}>
-              Related Content
-            </h3>
-            <div className="row">
-              <RelatedList endpoint={location.pathname} />
+            <div className="row m-0">
+              <RelatedList endpoint={location.pathname} isDark={isDark} />
             </div>
           </div>
         </div>

@@ -18,6 +18,7 @@ export type InfoProps = {
 
 export type RelatedProps = {
   endpoint: string;
+  isDark?: boolean;
 };
 
 export type RatingProps = {
@@ -50,10 +51,30 @@ export type DetailsProps = {
   votes: number;
   overview: string;
   image?: string;
+  genres: {
+    id: number;
+    name: string;
+  }[];
 };
 
 export type ReduxState = {
   isDark: boolean;
+};
+
+export type GenreCardProps = {
+  genre: string;
+};
+
+export type GenreListObject = {
+  id: number;
+  name: string;
+};
+
+export type GenreListProps = {
+  genres: {
+    id: number;
+    name: string;
+  }[];
 };
 
 export type ImgObject = {

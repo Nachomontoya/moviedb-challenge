@@ -8,6 +8,8 @@ import Loader from "react-loader-spinner";
 import { motion } from "framer-motion";
 import { useLocation } from "react-router";
 import ContentImg from "../ContentImg";
+import GenreCard from "../GenreCard";
+import GenreList from "../GenreList";
 
 function ContentInfo({ isDark, endpoint }: InfoProps): React.ReactElement {
   const [isLoading, setIsLoading] = useState<boolean>(true);
@@ -16,6 +18,7 @@ function ContentInfo({ isDark, endpoint }: InfoProps): React.ReactElement {
     votes: 0,
     overview: "",
     image: "",
+    genres: [],
   });
 
   const location = useLocation();
@@ -30,6 +33,7 @@ function ContentInfo({ isDark, endpoint }: InfoProps): React.ReactElement {
         votes: data.vote_average,
         overview: data.overview,
         image: data.poster_path,
+        genres: data.genres,
       });
     } catch (error) {
       let errorMessage: string;
@@ -62,9 +66,11 @@ function ContentInfo({ isDark, endpoint }: InfoProps): React.ReactElement {
             transition={{ duration: 0.8 }}
           >
             {/* Title */}
-            <h1 className={`${isDark ? "dark-blue" : "white"}`}>
+            <h1 className={`${isDark ? "dark-blue" : "white"} mb-2`}>
               {details.title}
             </h1>
+            {/* Genres */}
+            <GenreList genres={details.genres} />
             {/*  Votes */}
             <RatingCard isDark={isDark} votes={details.votes} />
             {/* Overview */}

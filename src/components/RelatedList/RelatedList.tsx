@@ -7,7 +7,7 @@ import { API } from "../../constants/routes";
 import { ImgObject, RelatedProps } from "../../utils/types";
 import Card from "../Card";
 
-function RelatedList({ endpoint }: RelatedProps): React.ReactElement {
+function RelatedList({ endpoint, isDark }: RelatedProps): React.ReactElement {
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const [related, setRelated] = useState([]);
 
@@ -44,6 +44,9 @@ function RelatedList({ endpoint }: RelatedProps): React.ReactElement {
         <Loader type="ThreeDots" color="#63acf0" height={50} width={50} />
       ) : (
         <>
+          <h3 className={`${isDark ? "dark-gray" : "white"} mb-3`}>
+            Related Content
+          </h3>
           {related ? (
             related.map((art: ImgObject) => (
               <Card
