@@ -19,7 +19,6 @@ function ContentDetails(): React.ReactElement {
   return (
     <Layout>
       <Scrollbars autoHide>
-        {/* content details */}
         <div
           className="d-flex flex-column justify-content-between"
           data-testid="cnt-details"
@@ -27,7 +26,6 @@ function ContentDetails(): React.ReactElement {
           <div className="row m-0 mb-5">
             <ContentInfo isDark={isDark} endpoint={location.pathname} />
           </div>
-          {/* related content */}
           <div className="col-12">
             <div className="row m-0">
               <RelatedList endpoint={location.pathname} isDark={isDark} />

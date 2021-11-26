@@ -64,15 +64,14 @@ function ContentInfo({ isDark, endpoint }: InfoProps): React.ReactElement {
             animate={{ x: 0, opacity: 1 }}
             transition={{ duration: 0.8 }}
           >
-            {/* Title */}
             <h1 className={`${isDark ? "dark-blue" : "white"} mb-2`}>
               {details.title}
             </h1>
-            {/* Genres */}
+
             <GenreList genres={details.genres} />
-            {/*  Votes */}
+
             <RatingCard isDark={isDark} votes={details.votes} />
-            {/* Overview */}
+
             <div className="col-12 col-lg-8">
               <h3 className={`${isDark ? "dark-gray" : "white"} mb-3`}>
                 Overview
