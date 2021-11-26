@@ -16,11 +16,11 @@ function Home(): React.ReactElement {
   return (
     <Layout>
       <Scrollbars autoHide>
-        <div className="d-flex justify-content-between py-2 mb-4">
-          <h2 className={`${isDark ? "dark-blue" : "white"}`}>
+        <div className="row m-0 py-2 mb-4">
+          <h2 className={`${isDark ? "dark-blue" : "white"} col-12 col-sm-6`}>
             Popular {isMovie ? "Movies" : "Shows"}
           </h2>
-          <div className="d-flex gap-3">
+          <div className="col-12 col-sm-6 d-flex justify-content-end gap-3">
             <Button onClick={() => setIsMovie(true)} isActive={isMovie}>
               Movies
             </Button>

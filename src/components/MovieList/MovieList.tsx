@@ -38,7 +38,7 @@ function MovieList(): React.ReactElement {
   }, []);
 
   return (
-    <div className="row">
+    <div className="row m-0">
       {isLoading ? (
         <Loader type="ThreeDots" color="#63acf0" height={50} width={50} />
       ) : (

@@ -8,7 +8,7 @@ function Button({ children, onClick, isActive }: BtnProps): React.ReactElement {
 
   return (
     <button
-      className={`${btnClass} fnt-small`}
+      className={`${btnClass} fnt-small h-40`}
       type="button"
       onClick={onClick}
       data-testid="btn-text"
