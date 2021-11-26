@@ -1,5 +1,5 @@
 import React from "react";
-import { render, screen } from "@testing-library/react";
+import { render, screen, waitFor } from "@testing-library/react";
 import "@testing-library/jest-dom";
 
 import ContentDetails from "../../pages/ContentDetails";
@@ -15,6 +15,7 @@ describe("Home page", () => {
         </BrowserRouter>
       </Provider>,
     );
-    expect(screen.getByText("Related Content"));
+    const cntDetails = screen.getAllByTestId("cnt-details");
+    waitFor(() => expect(cntDetails).toBeInTheDocument());
   });
 });

@@ -20,7 +20,10 @@ function ContentDetails(): React.ReactElement {
     <Layout>
       <Scrollbars autoHide>
         {/* content details */}
-        <div className="d-flex flex-column justify-content-between">
+        <div
+          className="d-flex flex-column justify-content-between"
+          data-testid="cnt-details"
+        >
           <div className="row m-0 mb-5">
             <ContentInfo isDark={isDark} endpoint={location.pathname} />
           </div>

@@ -8,7 +8,6 @@ import Loader from "react-loader-spinner";
 import { motion } from "framer-motion";
 import { useLocation } from "react-router";
 import ContentImg from "../ContentImg";
-import GenreCard from "../GenreCard";
 import GenreList from "../GenreList";
 
 function ContentInfo({ isDark, endpoint }: InfoProps): React.ReactElement {
